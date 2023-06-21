@@ -49,6 +49,7 @@ stack_t *add_dnodeint(stack_t **head, const int n);
 int is_numb(char *arg);
 void _pull(stack_t **stack, unsigned int line_num);
 void _push(stack_t **stack, unsigned int line_num);
-
+void exit_fail(stack_t **stack);
+char *str_tok(char *str);
 
 #endif

@@ -16,7 +16,7 @@ return (0);
 i = 0;
 while (arg[i])
 {
-if (arg[i] == '-')
+if (arg[0] == '-')
 {
 i++;
 continue;

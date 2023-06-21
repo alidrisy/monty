@@ -14,7 +14,7 @@ fprintf(stderr, "Error: malloc failed\n");
 exit_fail(stack);
 }
 arg = strtok(NULL, "\n ");
-if (is_numb(arg) == 1)
+if (is_numb(arg) == 1 && arg != NULL)
 {
 num = atoi(arg);
 }
@@ -29,12 +29,7 @@ add_dnodeint(stack, num);
 void _pull(stack_t **stack, unsigned int line_num)
 {
 stack_t *head;
-head = malloc(sizeof(stack_t));
-if (head == NULL)
-{
-fprintf(stderr, "Error: malloc failed\n");
-exit_fail(stack);
-}
+(void)line_num;
 head = *stack;
 while (head != NULL)
 {

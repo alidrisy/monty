@@ -1,11 +1,12 @@
 #include "main.h"
 
-void open_file(stack_t **stack, char **av)
+void open_file(stack_t **stack, char *av)
 {
-	int line_num = 0;
+	int line_num = 1;
 	char *buf = NULL, *str;
 	size_t n = 0;
-	instruction_t fun;
+	instruct_fun fun;
+	int i;
 	FILE *x = fopen(av, "r");
 	if (x == NULL)
 	{
@@ -13,9 +14,9 @@ void open_file(stack_t **stack, char **av)
 		exit_fail(stack);
 	}
 
-	while (getline(&buf, &n, x) != -1)
+	while ((i = getline(&buf, &n, x)) != -1)
 	{
-		str = strtok(buf, "\n ");
+		str = str_tok(buf);
 		if (str == NULL || str[0] == '#')
 		{
 			line_num++;
@@ -31,9 +32,9 @@ void open_file(stack_t **stack, char **av)
 		line_num++;
 	}
 	free(buf);
-	free_list(stack);
-	if (fclose(x) == -1)
-		exit_fail(stack);
+	i = fclose(x);
+	if (i == -1)
+		exit(-1);
 }
 
 instruct_fun get_fun(char *str)
@@ -41,11 +42,20 @@ instruct_fun get_fun(char *str)
 	int i = 0;
 	instruction_t instrct[] = {
 		{"push", _push},
-		{"pull", _pull},
+		{"pall", _pull},
 		{NULL, NULL}
 	};
 
 	while (instrct[i].f != NULL && strcmp(instrct[i].opcode, str) != 0)
 		i++;
 	return (instrct[i].f);
+}
+
+char *str_tok(char *str)
+{
+	char *s;
+	s = strtok(str, "\n ");
+	if (s == NULL)
+		return (NULL);
+	return (s);
 }
