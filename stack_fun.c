@@ -69,3 +69,23 @@ exit_fail(stack);
 else
 printf("%d\n", new->n);
 }
+
+/**
+* _pop - removes the top element of the stack.
+* @stack: a pointer for the stack
+* @line_num: anumber of line in stack
+*/
+
+void _pop(stack_t **stack, unsigned int line_num)
+{
+stack_t *new;
+new = *stack;
+
+if (!new)
+{
+fprintf(stderr, "L%d: can't pop an empty stack\n", line_num);
+exit_fail(stack);
+}
+else
+delete_dnodeint_at_index(stack, 0);
+}
