@@ -14,7 +14,7 @@ void open_file(stack_t **stack, char *av)
 		exit_fail(stack);
 	}
 
-	while ((i = getline(&buf, &n, x)) != -1)
+	while ((getline(&buf, &n, x)) != -1)
 	{
 		str = str_tok(buf);
 		if (str == NULL || str[0] == '#')
