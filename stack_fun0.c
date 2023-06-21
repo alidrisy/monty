@@ -15,7 +15,7 @@ int x;
 new = *stack;
 if (new == NULL || new->next == NULL)
 {
-fprintf(stderr, "L%d: can't swap, stack too short", line_num);
+fprintf(stderr, "L%d: can't swap, stack too short\n", line_num);
 exit_fail(stack);
 }
 x = new->n;
