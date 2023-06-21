@@ -9,7 +9,7 @@
 
 void _swap(stack_t **stack, unsigned int line_num)
 {
-stack_t *new = NULL;
+stack_t *new;
 int x;
 
 new = *stack;
