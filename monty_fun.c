@@ -62,6 +62,7 @@ instruct_fun get_fun(char *str)
 		{"pop", _pop},
 		{"nop", _nop},
 		{"swap", _swap},
+		{"add", _add},
 		{NULL, NULL}
 	};
 

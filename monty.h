@@ -56,5 +56,6 @@ int delete_dnodeint_at_index(stack_t  **head, unsigned int index);
 void _pop(stack_t **stack, unsigned int line_num);
 void _nop(stack_t **stack, unsigned int line_num);
 void _swap(stack_t **stack, unsigned int line_num);
+void _add(stack_t **stack, unsigned int line_num);
 
 #endif
