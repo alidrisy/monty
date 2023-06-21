@@ -16,6 +16,7 @@ void open_file(stack_t **stack, char *av)
 	int i;
 	int c;
 	FILE *x = fopen(av, "r");
+
 	if (x == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", av);
@@ -75,6 +76,7 @@ instruct_fun get_fun(char *str)
 char *str_tok(char *str)
 {
 	char *s;
+
 	s = strtok(str, "\n ");
 	if (s == NULL)
 		return (NULL);

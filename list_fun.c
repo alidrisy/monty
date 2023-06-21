@@ -2,8 +2,8 @@
 
 /**
 * add_dnodeint - add new element to the stack
-* @stack: a pointer for the stack
-* @line_number: a new element to add
+* @head: a pointer for the stack
+* @n: a new element to add
 * Return: a new node
 */
 
