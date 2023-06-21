@@ -34,7 +34,6 @@ void open_file(stack_t **stack, char *av)
 		line_num++;
 	}
 	free(buf);
-	free_list(*stack);
 	i = fclose(x);
 	if (i == -1)
 		exit(-1);
