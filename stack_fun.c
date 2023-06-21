@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+* _push - pushes an element to the stack.
+* @stack: a pointer for the stack
+* @line_num: anumber of line in stack
+*/
 
 void _push(stack_t **stack, unsigned int line_num)
 {
@@ -27,7 +32,13 @@ add_dnodeint(stack, num);
 free(new);
 }
 
-void _pull(stack_t **stack, unsigned int line_num)
+/**
+* _pall - prints the value of the stack
+* @stack: a pointer for the stack
+* @line_num: anumber of line in stack
+*/
+
+void _pall(stack_t **stack, unsigned int line_num)
 {
 stack_t *new;
 (void)line_num;
@@ -40,3 +51,21 @@ new = new->next;
 }
 }
 
+/**
+* _pint - prints the value at the top of the stack
+* @stack: a pointer for the stack
+* @line_num: anumber of line in stack
+*/
+
+void _pint(stack_t **stack, unsigned int line_num)
+{
+stack_t *new;
+new = *stack;
+if (!new)
+{
+fprintf(stderr, "L%d: can't pint, stack empty\n", line_num);
+exit_fail(stack);
+}
+else
+printf("%d\n", new->n);
+}

@@ -47,9 +47,10 @@ instruct_fun get_fun(char *str);
 void free_list(stack_t *head);
 stack_t *add_dnodeint(stack_t **head, const int n);
 int is_numb(char *arg);
-void _pull(stack_t **stack, unsigned int line_num);
+void _pall(stack_t **stack, unsigned int line_num);
 void _push(stack_t **stack, unsigned int line_num);
 void exit_fail(stack_t **stack);
 char *str_tok(char *str);
+void _pint(stack_t **stack, unsigned int line_num);
 
 #endif

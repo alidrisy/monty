@@ -44,7 +44,8 @@ instruct_fun get_fun(char *str)
 	int i = 0;
 	instruction_t instrct[] = {
 		{"push", _push},
-		{"pall", _pull},
+		{"pall", _pall},
+		{"pint", _pint},
 		{NULL, NULL}
 	};
 
