@@ -89,3 +89,15 @@ exit_fail(stack);
 else
 delete_dnodeint_at_index(stack, 0);
 }
+
+/**
+* _nop - doesn’t do anything.
+* @stack: a pointer for the stack
+* @line_num: anumber of line in stack
+*/
+
+void _nop(stack_t **stack, unsigned int line_num)
+{
+(void)line_num;
+(void)stack;
+}

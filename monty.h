@@ -54,5 +54,6 @@ char *str_tok(char *str);
 void _pint(stack_t **stack, unsigned int line_num);
 int delete_dnodeint_at_index(stack_t  **head, unsigned int index);
 void _pop(stack_t **stack, unsigned int line_num);
+void _nop(stack_t **stack, unsigned int line_num);
 
 #endif
