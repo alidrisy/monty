@@ -23,7 +23,6 @@ else
 fprintf(stderr, "L%d: usage: push integer\n", line_num);
 exit_fail(stack);
 }
-if (stack != NULL)
 add_dnodeint(stack, num);
 }
 
