@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 void open_file(stack_t **stack, char *av)
 {

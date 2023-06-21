@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 void exit_fail(stack_t **stack)
 {
