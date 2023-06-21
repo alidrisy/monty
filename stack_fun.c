@@ -3,7 +3,7 @@
 
 void _push(stack_t **stack, unsigned int line_num)
 {
-stack_t *new;
+stack_t *new = NULL;
 char *arg;
 int num = 0;
 
@@ -24,6 +24,7 @@ fprintf(stderr, "L%d: usage: push integer\n", line_num);
 exit_fail(stack);
 }
 add_dnodeint(stack, num);
+free(new);
 }
 
 void _pull(stack_t **stack, unsigned int line_num)
