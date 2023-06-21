@@ -1,5 +1,5 @@
 #include "monty.h"
-
+#include <sys/types.h>
 
 void open_file(stack_t **stack, char *av)
 {
@@ -8,6 +8,7 @@ void open_file(stack_t **stack, char *av)
 	size_t n = 0;
 	instruct_fun fun;
 	int i;
+	int c = 0;
 	FILE *x = fopen(av, "r");
 	if (x == NULL)
 	{
@@ -15,7 +16,7 @@ void open_file(stack_t **stack, char *av)
 		exit_fail(stack);
 	}
 
-	while ((getline(&buf, &n, x)) != -1)
+	while ((c = getline(&buf, &n, x)) != -1)
 	{
 		str = str_tok(buf);
 		if (str == NULL || str[0] == '#')
