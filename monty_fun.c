@@ -61,6 +61,7 @@ instruct_fun get_fun(char *str)
 		{"pint", _pint},
 		{"pop", _pop},
 		{"nop", _nop},
+		{"swap", _swap},
 		{NULL, NULL}
 	};
 
