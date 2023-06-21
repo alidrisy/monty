@@ -2,11 +2,11 @@
 
 int main(int ac, char **av)
 {
-	stack_t *stack;
+	stack_t *stack = NULL;
 	if (ac != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
+		exit_fail(&stack);
 	}
 	open_file(&stack, av[1]);
 	free_list(stack);

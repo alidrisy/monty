@@ -31,10 +31,6 @@ void _pull(stack_t **stack, unsigned int line_num)
 stack_t *new;
 (void)line_num;
 
-if (*stack == NULL)
-return;
-
-
 new = *stack;
 while (new->next != NULL && new != NULL)
 {

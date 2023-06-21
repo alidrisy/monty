@@ -16,11 +16,10 @@ void open_file(stack_t **stack, char *av)
 		exit_fail(stack);
 	}
 
-	while (c > 0)
+	while ((c = getline(&buf, &n, x)) != -1)
 	{
-		c = getline(&buf, &n, x);
 		str = str_tok(buf);
-		if (str == NULL || str[0] == '$')
+		if (str == NULL || str[0] == '#')
 		{
 			line_num++;
 			continue;
