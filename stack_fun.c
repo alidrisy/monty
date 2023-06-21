@@ -28,14 +28,20 @@ add_dnodeint(stack, num);
 
 void _pull(stack_t **stack, unsigned int line_num)
 {
-stack_t *new;
+stack_t *new = NULL;
 (void)line_num;
 
-new = *stack;
-if (new == NULL)
+if (*stack == NULL)
 return;
 
-while (new != NULL)
+if (*stack == NULL && line_num != 1)
+{
+free_list(*stack);
+exit(EXIT_SUCCESS);
+}
+
+new = *stack;
+while (new->next != NULL)
 {
 printf("%d\n", new->n);
 new = new->next;

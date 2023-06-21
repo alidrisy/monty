@@ -20,7 +20,7 @@ void open_file(stack_t **stack, char *av)
 	{
 		c = getline(&buf, &n, x);
 		str = str_tok(buf);
-		if (str == NULL || str[0] == '#')
+		if (str == NULL || str[0] == '$')
 		{
 			line_num++;
 			continue;
@@ -35,7 +35,6 @@ void open_file(stack_t **stack, char *av)
 		line_num++;
 		free(buf);
 	}
-	free_list(*stack);
 	i = fclose(x);
 	if (i == -1)
 		exit(-1);
