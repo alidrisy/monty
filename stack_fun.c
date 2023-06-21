@@ -32,7 +32,7 @@ stack_t *new;
 (void)line_num;
 
 new = *stack;
-while (new->next != NULL && new != NULL)
+while (new != NULL)
 {
 printf("%d\n", new->n);
 new = new->next;
