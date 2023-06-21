@@ -8,7 +8,7 @@ char *arg;
 int num = 0;
 
 new = malloc(sizeof(stack_t));
-if (new == NULL)
+if (!new)
 {
 fprintf(stderr, "Error: malloc failed\n");
 exit_fail(stack);
@@ -23,25 +23,21 @@ else
 fprintf(stderr, "L%d: usage: push integer\n", line_num);
 exit_fail(stack);
 }
+if (stack != NULL)
 add_dnodeint(stack, num);
 }
 
 void _pull(stack_t **stack, unsigned int line_num)
 {
-stack_t *new = NULL;
+stack_t *new;
 (void)line_num;
 
 if (*stack == NULL)
 return;
 
-if (*stack == NULL && line_num != 1)
-{
-free_list(*stack);
-exit(EXIT_SUCCESS);
-}
 
 new = *stack;
-while (new->next != NULL)
+while (new->next != NULL && new != NULL)
 {
 printf("%d\n", new->n);
 new = new->next;

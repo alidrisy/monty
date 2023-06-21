@@ -33,8 +33,8 @@ void open_file(stack_t **stack, char *av)
 		}
 		fun(stack, line_num);
 		line_num++;
-		free(buf);
 	}
+	free(buf);
 	i = fclose(x);
 	if (i == -1)
 		exit(-1);
