@@ -1,6 +1,12 @@
 #include "monty.h"
 #include <sys/types.h>
 
+/**
+* open_file - open the monty file and get lines
+* @stack: a pointer for the stack
+* @av: a pointer for the file
+*/
+
 void open_file(stack_t **stack, char *av)
 {
 	int line_num = 1;
@@ -39,6 +45,12 @@ void open_file(stack_t **stack, char *av)
 		exit(-1);
 }
 
+/**
+* get_fun - get the command
+* @str: the name of the command
+* Return: the function
+*/
+
 instruct_fun get_fun(char *str)
 {
 	int i = 0;
@@ -53,6 +65,12 @@ instruct_fun get_fun(char *str)
 		i++;
 	return (instrct[i].f);
 }
+
+/**
+* str_tok - get the content line by line
+* @str: the string of content
+* Return: string
+*/
 
 char *str_tok(char *str)
 {

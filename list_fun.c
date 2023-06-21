@@ -1,5 +1,12 @@
 #include "monty.h"
 
+/**
+* add_dnodeint - add new element to the stack
+* @stack: a pointer for the stack
+* @line_number: a new element to add
+* Return: a new node
+*/
+
 stack_t *add_dnodeint(stack_t **head, const int n)
 {
 stack_t *new;
@@ -25,6 +32,11 @@ new->prev = NULL;
 *head = new;
 return (new);
 }
+
+/**
+* free_list - free linked list
+* @head: a pointer to link list
+*/
 
 void free_list(stack_t *head)
 {
