@@ -8,7 +8,7 @@ void open_file(stack_t **stack, char *av)
 	size_t n = 0;
 	instruct_fun fun;
 	int i;
-	int c = 0;
+	int c = 1;
 	FILE *x = fopen(av, "r");
 	if (x == NULL)
 	{
@@ -16,8 +16,9 @@ void open_file(stack_t **stack, char *av)
 		exit_fail(stack);
 	}
 
-	while ((c = getline(&buf, &n, x)) != -1)
+	while (c > 0)
 	{
+		c = getline(&buf, &n, x);
 		str = str_tok(buf);
 		if (str == NULL || str[0] == '#')
 		{
@@ -32,8 +33,9 @@ void open_file(stack_t **stack, char *av)
 		}
 		fun(stack, line_num);
 		line_num++;
+		free(buf);
 	}
-	free(buf);
+	free_list(*stack);
 	i = fclose(x);
 	if (i == -1)
 		exit(-1);
