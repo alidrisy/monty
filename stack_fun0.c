@@ -32,7 +32,7 @@ new->next->n = x;
 
 void _add(stack_t **stack, unsigned int line_num)
 {
-stack_t *new;
+stack_t *new = NULL;
 
 new = *stack;
 if (new == NULL || new->next == NULL)
@@ -41,5 +41,6 @@ fprintf(stderr, "L%d: can't add, stack too short\n", line_num);
 exit_fail(stack);
 }
 new->next->n = new->n + new->next->n;
-*stack = new->next;
+*stack = new;
+delete_dnodeint_at_index(stack, 0);
 }
