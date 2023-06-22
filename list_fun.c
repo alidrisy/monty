@@ -33,6 +33,46 @@ new->prev = NULL;
 return (new);
 }
 
+
+/**
+* add_dnodeint_end - add new element to the end of the stack
+* @head: a pointer for the stack
+* @n: a new element to add
+* Return: a new node
+*/
+
+stack_t *add_dnodeint_end(stack_t **head, const int n)
+{
+stack_t *new, *ne;
+
+new = malloc(sizeof(stack_t));
+if (new == NULL)
+return (NULL);
+
+new->n = n;
+new->next = NULL;
+new->prev = NULL;
+if (*head == NULL)
+{
+*head = new;
+return (new);
+}
+else
+{
+ne = *head;
+while (ne->next != NULL)
+{
+ne = ne->next;
+}
+ne->next = new;
+new->prev = ne;
+}
+return (new);
+}
+
+
+
+
 /**
 * free_list - free linked list
 * @head: a pointer to link list

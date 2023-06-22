@@ -26,7 +26,7 @@ void open_file(stack_t **stack, char *av)
 	while ((c = getline(&buf, &n, x)) != -1)
 	{
 		str = str_tok(buf);
-		if (str == NULL)
+		if (str == NULL || str[0] == '#')
 		{
 			line_num++;
 			continue;
@@ -63,6 +63,14 @@ instruct_fun get_fun(char *str)
 		{"nop", _nop},
 		{"swap", _swap},
 		{"add", _add},
+		{"sub", _sub},
+		{"div", _div},
+		{"pchar", _pchar},
+		{"pstr", _pstr},
+		{"rotl", _rotl},
+		{"rotr", _rotr},
+		{"mul", _mul},
+		{"mod", _mod},
 		{NULL, NULL}
 	};
 
