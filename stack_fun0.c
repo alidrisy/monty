@@ -63,16 +63,13 @@ stack_t *new = NULL;
 (void)line_num;
 
 new = *stack;
-if (new)
-{
 while ((new->n >= 65 && new->n <= 90) || (new->n >= 97 && new->n <= 122))
 {
 printf("%c", new->n);
 new = new->next;
 }
-}
 printf("\n");
-free(new);
+free (new);
 }
 
 
@@ -93,7 +90,7 @@ if (new == NULL)
 fprintf(stderr, "Error: malloc failed\n");
 exit_fail(stack);
 }
-if (new)
+if (*stack)
 new->n = (*stack)->n;
 
 delete_dnodeint_at_index(stack, 0);
@@ -122,7 +119,8 @@ if (new == NULL)
 fprintf(stderr, "Error: malloc failed\n");
 exit_fail(stack);
 }
-
+if (*stack)
+{
 ne = *stack;
 while (ne)
 {
@@ -134,6 +132,7 @@ x++;
 }
 delete_dnodeint_at_index(stack, x - 1);
 add_dnodeint(stack, new->n);
+}
 free(new);
 free(ne);
 }
