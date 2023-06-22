@@ -69,7 +69,6 @@ printf("%c", new->n);
 new = new->next;
 }
 printf("\n");
-free (new);
 }
 
 
@@ -83,6 +82,9 @@ void _rotl(stack_t **stack, unsigned int line_num)
 {
 stack_t *new;
 (void)line_num;
+
+if (*stack == NULL)
+return;
 
 new = malloc(sizeof(stack_t));
 if (new == NULL)
