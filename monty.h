@@ -1,6 +1,7 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+extern int but;
 
 #define _POSIX_C_SOURCE 200809L
 #include <stdio.h>
@@ -66,5 +67,7 @@ stack_t *add_dnodeint_end(stack_t **head, const int n);
 void _rotr(stack_t **stack, unsigned int line_num);
 void _mul(stack_t **stack, unsigned int line_num);
 void _mod(stack_t **stack, unsigned int line_num);
+void _stack(stack_t **stack, unsigned int line_num);
+void _queue(stack_t **stack, unsigned int line_num);
 
 #endif

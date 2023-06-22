@@ -28,7 +28,14 @@ else
 fprintf(stderr, "L%d: usage: push integer\n", line_num);
 exit_fail(stack);
 }
+if (but == 0)
+{
 add_dnodeint(stack, num);
+}
+if (but == 1)
+{
+add_dnodeint_end(stack, num);
+}
 free(new);
 }
 
