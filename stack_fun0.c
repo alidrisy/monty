@@ -72,6 +72,7 @@ new = new->next;
 }
 }
 printf("\n");
+free(new);
 }
 
 
@@ -83,7 +84,7 @@ printf("\n");
 
 void _rotl(stack_t **stack, unsigned int line_num)
 {
-stack_t *new = NULL;
+stack_t *new;
 (void)line_num;
 
 new = malloc(sizeof(stack_t));
@@ -92,7 +93,7 @@ if (new == NULL)
 fprintf(stderr, "Error: malloc failed\n");
 exit_fail(stack);
 }
-
+if (new)
 new->n = (*stack)->n;
 
 delete_dnodeint_at_index(stack, 0);
@@ -134,4 +135,5 @@ x++;
 delete_dnodeint_at_index(stack, x - 1);
 add_dnodeint(stack, new->n);
 free(new);
+free(ne);
 }
