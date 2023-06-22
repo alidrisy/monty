@@ -55,7 +55,7 @@ stack_t *new = NULL;
 new = *stack;
 if (new == NULL || new->next == NULL)
 {
-fprintf(stderr, "L%d: can't add, stack too short\n", line_num);
+fprintf(stderr, "L%d: can't div, stack too short\n", line_num);
 exit_fail(stack);
 }
 if (new->n == 0)

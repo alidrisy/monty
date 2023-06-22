@@ -59,30 +59,17 @@ exit_fail(stack);
 
 void _pstr(stack_t **stack, unsigned int line_num)
 {
-stack_t *new;
-int x = 0;
+stack_t *new = NULL;
+(void)line_num;
 
 new = *stack;
-if (!new)
-{
-fprintf(stderr, "L%d: can't pchar, stack empty\n", line_num);
-exit_fail(stack);
-}
-while (new != NULL)
-{
-if (((new->n >= 65 && new->n <= 90) || (new->n >= 97 && new->n <= 122)) && new->n != 0)
+
+while ((new->n >= 65 && new->n <= 90) || (new->n >= 97 && new->n <= 122))
 {
 printf("%c", new->n);
-x++;
-}
-else
-{
-if (x)
-printf("\n");
-return;
-}
 new = new->next;
 }
+printf("\n");
 }
 
 
@@ -94,16 +81,13 @@ new = new->next;
 
 void _rotl(stack_t **stack, unsigned int line_num)
 {
-stack_t *new;
+stack_t *new = NULL;
 (void)line_num;
 
 new = *stack;
-if (!new)
-return;
 
 delete_dnodeint_at_index(stack, 0);
 add_dnodeint_end(stack, new->n);
-free(new);
 }
 
 
@@ -116,11 +100,14 @@ free(new);
 void _rotr(stack_t **stack, unsigned int line_num)
 {
 stack_t *new, *ne;
-int x = 0;
+int x;
 (void) line_num;
 
-new = malloc(sizeof(stack_t));
+ne = NULL;
+new = NULL;
+x = 0;
 
+new = malloc(sizeof(stack_t));
 if (new == NULL)
 {
 fprintf(stderr, "Error: malloc failed\n");
@@ -138,6 +125,4 @@ x++;
 }
 delete_dnodeint_at_index(stack, x - 1);
 add_dnodeint(stack, new->n);
-
-free(new);
 }
