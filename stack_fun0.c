@@ -63,8 +63,6 @@ stack_t *new;
 (void)line_num;
 
 new = *stack;
-if (*stack == NULL)
-return;
 
 while (new != NULL)
 {
