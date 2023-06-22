@@ -121,9 +121,11 @@ if (new == NULL)
 fprintf(stderr, "Error: malloc failed\n");
 exit_fail(stack);
 }
-if (*stack)
-{
+
 ne = *stack;
+if (!ne)
+return;
+
 while (ne)
 {
 if (ne->next == NULL)
@@ -134,7 +136,6 @@ x++;
 }
 delete_dnodeint_at_index(stack, x - 1);
 add_dnodeint(stack, new->n);
-}
 free(new);
 free(ne);
 }
