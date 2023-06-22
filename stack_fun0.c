@@ -103,8 +103,6 @@ stack_t *new, *ne;
 int x;
 (void) line_num;
 
-ne = NULL;
-new = NULL;
 x = 0;
 
 new = malloc(sizeof(stack_t));
@@ -115,7 +113,7 @@ exit_fail(stack);
 }
 
 ne = *stack;
-while (ne != NULL)
+while (ne)
 {
 if (ne->next == NULL)
 new->n = ne->n;
@@ -125,4 +123,5 @@ x++;
 }
 delete_dnodeint_at_index(stack, x - 1);
 add_dnodeint(stack, new->n);
+free(new);
 }
