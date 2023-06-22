@@ -59,13 +59,23 @@ exit_fail(stack);
 
 void _pstr(stack_t **stack, unsigned int line_num)
 {
-stack_t *new = NULL;
+stack_t *new;
 (void)line_num;
 
 new = *stack;
-while ((new->n >= 65 && new->n <= 90) || (new->n >= 97 && new->n <= 122))
+if (*stack == NULL)
+return;
+
+while (new != NULL)
+{
+if ((new->n >= 65 && new->n <= 90) || (new->n >= 97 && new->n <= 122))
 {
 printf("%c", new->n);
+}
+else
+{
+break;
+}
 new = new->next;
 }
 printf("\n");
