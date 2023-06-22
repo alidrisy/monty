@@ -115,6 +115,9 @@ int x;
 
 x = 0;
 
+if (*stack == NULL)
+return;
+
 new = malloc(sizeof(stack_t));
 if (new == NULL)
 {
@@ -123,9 +126,6 @@ exit_fail(stack);
 }
 
 ne = *stack;
-if (!ne)
-return;
-
 while (ne)
 {
 if (ne->next == NULL)
@@ -137,5 +137,4 @@ x++;
 delete_dnodeint_at_index(stack, x - 1);
 add_dnodeint(stack, new->n);
 free(new);
-free(ne);
 }
