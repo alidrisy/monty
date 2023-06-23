@@ -71,6 +71,8 @@ instruct_fun get_fun(char *str)
 		{"rotr", _rotr},
 		{"mul", _mul},
 		{"mod", _mod},
+		{"stack", _stack},
+		{"queue", _queue},
 		{NULL, NULL}
 	};
 
